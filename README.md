@@ -1,5 +1,4 @@
-# Ingenieria-de-sistemas-1
+# Ingenieria-de-sistemas
 Project for class
 
-Miguelito Poli, estuvo aqui
-yeiiiiiiiii
+## Proyecto Ingenieria de Software I
