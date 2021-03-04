@@ -7,4 +7,4 @@ Project for class
 
 ### Johan Santiago Bernal Velásquez 
 
-### Miguel Ángel García Perill
+### Miguel Ángel García Perilla
