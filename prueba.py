@@ -6,10 +6,7 @@ print("johan!!!!!")
 
 print("mr como esta¿?")
 
-
-
-
-
+print("stream tiburoncin u ja ja")
 
 
 
