@@ -1,1 +1,16 @@
-print "hola mundo"
+print ("hola mundo")
+
+print("que tal estan todo?")
+
+
+
+
+
+
+
+
+
+
+
+
+
