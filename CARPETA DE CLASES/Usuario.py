@@ -1,3 +1,5 @@
+#class Usuario:
+#def __init__(Nombre,Apellidos,NumeroDeIdentificacion,ImagenDeUsuario,RegistroPrevisto,RegistroReal,RegistrosDatos,Presupuesto):
 Nombre= 'String'
 Apellidos= 'String'
 NumeroDeIdentificacion= 'Int'
