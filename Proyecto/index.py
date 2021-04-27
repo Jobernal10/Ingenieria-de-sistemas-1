@@ -27,4 +27,4 @@ def categorias():
     return render_template('categorias.html')
 
 if __name__ == '__main__': #Verlo en navegador
-    app.run(debug=True,port=8080) #Guardado automatico
+    app.run(debug=True,port=8060) #Guardado automatico
