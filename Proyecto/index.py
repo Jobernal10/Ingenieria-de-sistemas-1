@@ -17,7 +17,7 @@ def contacto():
 
 #Rutas las que quiera
 
-@app.route('/main')
+@app.route('/')
 def principal():
     return render_template('index.html') #llamando a la ruta HTML
 
