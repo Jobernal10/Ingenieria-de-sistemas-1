@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">UrBudget</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">UPrueba del URSS</a>
         <input class="form-control form-control-blue w-40" type="text" placeholder="Buscar" aria-label="Buscar">
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
@@ -92,7 +92,12 @@
               <input id="typeMontoReal" type="number">
             </div>
             <div class="clase-monto">
-              <button id="botonAñadir" onclick='x=typeMontoEstimado, y=typeMontoReal'>Añadir</button>
+              <button id="botonAñadir">Añadir</button>
+              <script>
+              var button = document.getElementById("mybutton");  
+              var resta= typeMontoReal-typeMontoEstimado
+              alert("esta es respuesta "+(resta))
+              </script>
             </div>
             </form>
 
