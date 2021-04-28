@@ -1,4 +1,4 @@
-function diferencia(real,previsto) {
-    var resultado = real-previsto;
+function diferencia(preeviso,real) {
+    var resultado = preeviso-real;
     return diferencia;
   }
