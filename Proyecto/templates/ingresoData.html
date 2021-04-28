@@ -46,13 +46,13 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Mes actual
+                    Ingreso real
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Ultimo mes
+                    Ingreso previsto
                   </a>
                 </li>
               </ul>
@@ -74,37 +74,142 @@
               </div>
             </div>
 
-            <h4>Ingrese su información económica</h4>
-            <div>
-              <table>
 
+            <div class="clase-title">
+            <h4>Ingrese la siguiente información</h4>
+          </div>
+            <form id="montoIngresado">
+              <br>
+              <div class="clase-monto">
+              <label for="estimado">Ingreso previsto</label>
+              <input id="typeEstimado" name="typeEstimado" type="number">
+              </div>
+              <div class="clase-monto">
+              <label for="real">Ingreso real</label>
+              <input id="typeReal" name="typeReal" type="number">
+              </div>
+              <div class="clase-monto">
+              <button id="botonAñadir">Añadir</button>
+              </div>
+            </form>
+            <br>
 
+            <div class="clase-title">
+            <h4>Ingrese su flujo de caja</h4>
+            </div>
+            <form id="flujodecaja">
+              <br> 
+                <div class="clase-FC">
+                  Tipo de transacción
+                <br>
+                <label for="gasto" name="typegasto">Gasto</label>
+                <input id="gasto" name="typeGasto" type="radio" value="Gasto">
+                </div>
+                    <div class="clase-FC">
+                    <label for="typeFecha">Fecha</label>
+                    <input id="typeFecha" name="typeFecha" type="date">
+                </div>
+                <div class="clase-FC">
+                    <label for="typeCateogira">Categoría</label>
+                    <input id="typeCateogira" name="typeCategoria">
+                </div>
+                <div class="clase-FC">
+                    <label for="typeCantidad">Cantidad</label>
+                    <input id="typeCantidad" name="typeCantidad" type="number">
+                </div>
+                    <div class="clase-FC">
+                    <button id="botonAñadir">Añadir</button>
+                </div>
+            </form>
+
+            <div class="tableFormat">
+              <table id="tablaPresupuesto">
+                <tr>
+                  <th>Tipo de transacción</th> 
+                  <th>Fecha</th>
+                  <th>Categoría</th>
+                  <th>Cantidad</th>
+                </tr>
+                <tr>
+                  <td>Gasto</td>
+                  <td>13/04/2021</td>
+                  <td>Hogar</td>
+                  <td>10000</td>
+                </tr>
+                <tr>
+                  <td>Gasto</td>
+                  <td>13/04/2021</td>
+                  <td>Hogar</td>
+                  <td>12000</td>
+                </tr>
               </table>
             </div>
 
-            <form>
-              <div class="clase-monto">
-              <label for="typeMontoEstimado">Monto Estimado</label>
-              <input id="typeMontoEstimado" type="number">
-            </div>
-            <div class="clase-monto">
-              <label for="typeMontoReal">Monto Real</label>
-              <input id="typeMontoReal" type="number">
-            </div>
-            <div class="clase-monto">
-              <button id="botonAñadir">Añadir</button>
-            </div>
-            </form>
+            <!--Cancelar evento del ordenador /recargar pagina -->
+            <script> 
+              const form1 = document.getElementById("montoIngresado");
+              form1.addEventListener("submit",function(event) {
+                event.preventDefault();
+                let transactionFormData1 = new FormData(form1);
+              })
+
+              const form2 = document.getElementById("flujodecaja");
+
+              form2.addEventListener("submit",function(event) {
+                event.preventDefault();
+                let transactionTableData = new FormData(form2);
+                insertRowInTransactionTable(transactionTableData)
+
+              })
+
+              function insertRowInTransactionTable(transactionTableData){
+                
+                let transactionTableRef = document.getElementById("tablaPresupuesto");
+                let newTransactionRowRef = transactionTableRef.insertRow(-1);
+
+                let newTypeCellRef = newTransactionRowRef.insertCell(0);
+                newTypeCellRef.textContent = transactionTableData.get("typeGasto")
+
+                newTypeCellRef = newTransactionRowRef.insertCell(1);
+                newTypeCellRef.textContent = transactionTableData.get("typeFecha")
+              
+                
+                newTypeCellRef = newTransactionRowRef.insertCell(2);
+                newTypeCellRef.textContent = transactionTableData.get("typeCategoria")
+
+                
+                newTypeCellRef = newTransactionRowRef.insertCell(3);
+                newTypeCellRef.textContent = transactionTableData.get("typeCantidad")
+              }
+
+            </script>
 
             <style>
               .clase-monto{
                 background-color: #f0f3bd;
-                padding-bottom: 5px;
+                padding-bottom: 10px;
+              }
+              .clase-FC{
+                background-color: #f0f3bd;
+                padding-bottom: 10px;
+              }
+              .clase-title{
+                background-color: #02c39a;
+                padding: 1px;
+                border: 1px solid black;
               }
               #botonAñadir{
+                color: blue;
                 font-size: 15px;
               }
-
+              td,
+              th{
+                padding: 10px;
+                border : 1px solid rgb(235, 185, 24); 
+              }
+              .tableFormat table {
+                margin: 0 auto;
+              }
             </style>
         </div> 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
