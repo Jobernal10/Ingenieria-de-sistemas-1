@@ -1,6 +1,5 @@
-botonAñadir.onclick = function(){
-  var resultado = typeMontoEstimado.value-typeMontoReal.value;
-  alert("esto es algo de "+resultado);
+botonAñadir1.onclick = function(){
+  var resultado = typeEstimado.value-typeReal.value;
   var divsaludar=document.getElementById("hola")
   divsaludar.innerText= ("Total: "+resultado)
 }
