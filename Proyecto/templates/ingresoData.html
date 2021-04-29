@@ -30,9 +30,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="ingresoData.html">
-                    Ingresar datos
-                  </a>
+                  <a class="nav-link" href="ingresoData.html">Ingresar datos</a>
                 </li>
               </ul>
     
@@ -104,7 +102,7 @@
                 <div class="clase-FC">
                   Tipo de transacción
                 <br>
-                <label for="gasto" name="typegasto">Gasto</label>
+                <label for="gasto" name="typeGasto">Gasto</label>
                 <input id="gasto" name="typeGasto" type="radio" value="Gasto">
                 </div>
                     <div class="clase-FC">
@@ -159,31 +157,51 @@
 
               form2.addEventListener("submit",function(event) {
                 event.preventDefault();
-                let transactionTableData = new FormData(form2);
-                insertRowInTransactionTable(transactionTableData)
 
+                let transactionFormData = new FormData(form2);
+                let transactionObj = convertFormDataToTransactionObj(transactionFormData)
+                saveTransactionObj(transactionObj)
+                insertRowInTransactionTable(transactionObj)
               })
 
-              function insertRowInTransactionTable(transactionTableData){
+              function convertFormDataToTransactionObj(transactionFormData){
+                let typeGasto = transactionFormData.get("typeGasto")
+                let typeFecha = transactionFormData.get("typeFecha")
+                let typeCategoria = transactionFormData.get("typeCategoria")
+                let typeCantidad = transactionFormData.get("typeCantidad")
+
+                return {"typeGasto": typeGasto,
+                        "typeFecha": typeFecha,
+                        "typeCategoria":typeCategoria,
+                        "typeCantidad":typeCantidad
+                      }
+
+              }
+            
+              function insertRowInTransactionTable(transactionObj){
                 
                 let transactionTableRef = document.getElementById("tablaPresupuesto");
                 let newTransactionRowRef = transactionTableRef.insertRow(-1);
 
                 let newTypeCellRef = newTransactionRowRef.insertCell(0);
-                newTypeCellRef.textContent = transactionTableData.get("typeGasto")
+                newTypeCellRef.textContent = transactionObj["typeGasto"];
 
                 newTypeCellRef = newTransactionRowRef.insertCell(1);
-                newTypeCellRef.textContent = transactionTableData.get("typeFecha")
+                newTypeCellRef.textContent = transactionObj["typeFecha"];
               
                 
                 newTypeCellRef = newTransactionRowRef.insertCell(2);
-                newTypeCellRef.textContent = transactionTableData.get("typeCategoria")
+                newTypeCellRef.textContent = transactionObj["typeCategoria"]; 
 
                 
                 newTypeCellRef = newTransactionRowRef.insertCell(3);
-                newTypeCellRef.textContent = transactionTableData.get("typeCantidad")
+                newTypeCellRef.textContent = transactionObj["typeCantidad"]
               }
 
+              function saveTransactionObj(transactionObj){
+                let transactionObjJSON = JSON.stringify(transactionObj);
+                localStorage.setItem("transactionData", transactionObjJSON)
+              }
             </script>
 
             <style>
