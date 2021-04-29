@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Ingesar datos</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Ingresar datos</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">UrBudget</a>
-        <input class="form-control form-control-blue w-40" type="text" placeholder="Buscar" aria-label="Buscar">
+    <div class="navbarmain">
+     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html" >UrBudget</a>
+       <!-- <input class="form-control form-control-blue w-40" type="text" placeholder="Buscar" aria-label="Buscar"> -->
         <ul class="navbar-nav px-3">
-          <li class="nav-item text-nowrap">
+          <li class="text-nowrap">
             <a class="nav-link">Cerrar sesión</a>
           </li>
         </ul>
       </nav>
+    </div>
     
       <div class="container-fluid">
         <div class="row">
@@ -60,16 +63,6 @@
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
               <h1 class="h2">Ingresar datos</h1>
-              <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                  <button class="btn btn-sm btn-outline-secondary">Subir</button>
-                  <button class="btn btn-sm btn-outline-secondary">Export</button>
-                </div>
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                  <span data-feather="calendar"></span>
-                  Esta semana
-                </button>
-              </div>
             </div>
 
 
@@ -95,7 +88,7 @@
             <br>
 
             <div class="clase-title">
-            <h4>Ingrese su flujo de caja</h4>
+            <h4>Ingrese flujo de caja previo</h4>
             </div>
             <form id="flujodecaja">
               
@@ -111,18 +104,25 @@
                     <input id="typeFecha" name="typeFecha" type="date">
                 </div>
                 <div class="clase-FC">
-                    <label for="typeCateogira">Categoría</label>
-                    <input id="typeCateogira" name="typeCategoria">
+                  <label for="typeCategoria">Categoría</label>
+                  <select name="typeCategoria" id="typeCategoria">
+                      <option disabled selected>Seleccione</option>
+                      <option>Hogar</option>
+                      <option>Entretenimiento</option>
+                      <option>Transporte</option>
+                      <option>Seguro</option>
+                      <option>Comida</option>
+                  </select>
                 </div>
                 <div class="clase-FC">
                     <label for="typeCantidad">Cantidad</label>
                     <input id="typeCantidad" name="typeCantidad" type="number">
                 </div>
                     <div class="clase-FC">
-                    <button id="botonAñadir">Añadir</button>                    
+                    <button id="botonAñadir">Añadir</button>                
                 </div>
+                <br>
             </form>
-
             <div class="tableFormat">
               <table id="tablaPresupuesto">
                 <tr>
@@ -133,15 +133,9 @@
                 </tr>
                 <tr>
                   <td>Gasto</td>
-                  <td>13/04/2021</td>
+                  <td>2021-04-23</td>
                   <td>Hogar</td>
-                  <td>10000</td>
-                </tr>
-                <tr>
-                  <td>Gasto</td>
-                  <td>13/04/2021</td>
-                  <td>Hogar</td>
-                  <td>12000</td>
+                  <td>100000</td>
                 </tr>
               </table>
               <div id=Ttabla>Total: </div>
@@ -207,31 +201,116 @@
             </script>
 
             <style>
-              .clase-monto{
-                background-color: #f0f3bd;
-                padding-bottom: 10px;
-              }
-              .clase-FC{
-                background-color: #f0f3bd;
-                padding-bottom: 10px;
-              }
-              .clase-title{
-                background-color: #02c39a;
-                padding: 1px;
-                border: 1px solid black;
-              }
-              #botonAñadir{
-                color: blue;
-                font-size: 15px;
-              }
-              td,
-              th{
-                padding: 10px;
-                border : 1px solid rgb(235, 185, 24); 
-              }
-              .tableFormat table {
-                margin: 0 auto;
-              }
+        .clase-monto{
+          font-family: Cambria ;
+          background-color: #f0f3bd;
+          padding-bottom: 10px;
+        }
+        .clase-FC{
+          font-family: Cambria ;
+          background-color: #f0f3bd;
+          padding-bottom: 10px;
+        }
+        .clase-title{
+          font-family: Cambria ;
+          background-color: #00a896;
+          padding: 1px;
+          border: 1px solid black;
+        }
+        td,
+        th{
+          font-family: Cambria ;
+          padding: 10px;
+          padding-bottom: 10px;
+          border : 1px solid rgb(0, 0, 0); 
+        }
+        .tableFormat table {
+          background-color: #f0f3bd;
+          font-weight: bold;
+          font-family: Cambria ;
+          margin: 0 auto;
+        }
+        .h2{
+          font-family: Cambria ;
+        }
+        .container-fluid{
+          font-family: Cambria ;
+        }
+        .navbarmain{
+          font-family: Cambria ;
+          font-size: 30px;
+        }
+        .nav-item{
+          font-size: 18px;
+        }
+        .sidebar-heading{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .navbar .form-control {
+         padding: .60rem 1rem;
+         border-width: 10;
+         border-radius: 0.5;
+         font-size: small;
+         max-width: 140vh;
+        }
+        
+        body {
+        font-size: .875rem;
+        }
+
+        .feather {
+          width: 16px;
+          height: 16px;
+          vertical-align: text-bottom;
+                }
+
+        /*
+        * Sidebar
+        */
+
+        /* Barrita que separa de sidebar con la info*/
+        .sidebar { 
+          box-shadow: inset -1px 0 0 rgba(55, 184, 167, 0.534);
+        }
+
+        .sidebar-sticky {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 48px; /* Height of navbar */
+          height: calc(100vh - 48px);
+          padding-top: .5rem;
+          overflow-x: hidden;
+          overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+
+        .sidebar .nav-link {
+          font-weight: 500;
+          color: #028090;
+        }
+
+        .sidebar .nav-link .feather {
+          margin-right: 4px;
+          color: #00a896;
+        }
+
+        .sidebar .nav-link.active {
+          color: #02c39a;
+        }
+
+        /*
+        * Navbar
+        */
+
+        .navbar-brand {
+          font-family: Cambria ;
+          font-size: 40px;
+        }
+        .col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4{
+          background-color:#02c39a;
+
+        }
+
             </style>
         </div> 
         <script src="./FuncionesJS/Diferencia.js"></script>

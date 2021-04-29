@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UrBudget</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 <!--
 <style>
@@ -79,12 +80,6 @@ body {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
 }
 
-.navbar .form-control {
-  padding: .75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
-}
-
 .form-control-dark {
   color: #fff;
   background-color: rgba(255, 255, 255, .1);
@@ -106,21 +101,17 @@ body {
 -->
 
 <body>
-  <script>
-    function test(var1,var2) {
-      alert(var1 + var2)
-    }
-  </script>
-
+  <div class="navbarmain">
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">UrBudget</a>
     <input class="form-control form-control-blue w-40" type="text" placeholder="Buscar" aria-label="Buscar">
     <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" onclick='test(12,2)'>Cerrar sesión</a>
+      <li class="text-nowrap"></li>
+        <a class="nav-link">Cerrar sesión</a>
       </li>
     </ul>
   </nav>
+  </div>
 
   <div class="container-fluid">
     <div class="row">
@@ -128,7 +119,7 @@ body {
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#" onclick='test(1,3)'>
+              <a class="nav-link active" href="#">
                 <span data-feather="home"></span>
                 Inicio <span class="sr-only">(current)</span>
               </a>
@@ -150,13 +141,13 @@ body {
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Mes actual
+                Ingreso real
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file-text"></span>
-                Ultimo mes
+                Ingreso previsto
               </a>
             </li>
           </ul>
@@ -166,149 +157,117 @@ body {
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <h1 class="h2">Inicio</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-              <button class="btn btn-sm btn-outline-secondary">Share</button>
-              <button class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar"></span>
-              This week
-            </button>
-          </div>
         </div>
         
       <!-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
 
-        <h2>Section title</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>amet</td>
-                <td>consectetur</td>
-                <td>adipiscing</td>
-                <td>elit</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>Integer</td>
-                <td>nec</td>
-                <td>odio</td>
-                <td>Praesent</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>nibh</td>
-                <td>elementum</td>
-                <td>imperdiet</td>
-                <td>Duis</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>sagittis</td>
-                <td>ipsum</td>
-                <td>Praesent</td>
-                <td>mauris</td>
-              </tr>
-              <tr>
-                <td>1,008</td>
-                <td>Fusce</td>
-                <td>nec</td>
-                <td>tellus</td>
-                <td>sed</td>
-              </tr>
-              <tr>
-                <td>1,009</td>
-                <td>augue</td>
-                <td>semper</td>
-                <td>porta</td>
-                <td>Mauris</td>
-              </tr>
-              <tr>
-                <td>1,010</td>
-                <td>massa</td>
-                <td>Vestibulum</td>
-                <td>lacinia</td>
-                <td>arcu</td>
-              </tr>
-              <tr>
-                <td>1,011</td>
-                <td>eget</td>
-                <td>nulla</td>
-                <td>Class</td>
-                <td>aptent</td>
-              </tr>
-              <tr>
-                <td>1,012</td>
-                <td>taciti</td>
-                <td>sociosqu</td>
-                <td>ad</td>
-                <td>litora</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>torquent</td>
-                <td>per</td>
-                <td>conubia</td>
-                <td>nostra</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>per</td>
-                <td>inceptos</td>
-                <td>himenaeos</td>
-                <td>Curabitur</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>sodales</td>
-                <td>ligula</td>
-                <td>in</td>
-                <td>libero</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </main>
+      <style>
+        .clase-monto{
+          font-family: Cambria ;
+          background-color: #f0f3bd;
+          padding-bottom: 10px;
+        }
+        .clase-FC{
+          font-family: Cambria ;
+          background-color: #f0f3bd;
+          padding-bottom: 10px;
+        }
+        .clase-title{
+          font-family: Cambria ;
+          background-color: #02c39a;
+          padding: 1px;
+          border: 1px solid black;
+        }
+        td,
+        th{
+          font-family: Cambria ;
+          padding: 10px;
+          border : 1px solid rgb(235, 185, 24); 
+        }
+        .tableFormat table {
+          font-family: Cambria ;
+          margin: 0 auto;
+        }
+        .h2{
+          font-family: Cambria ;
+        }
+        .container-fluid{
+          font-family: Cambria ;
+        }
+        .navbarmain{
+          font-family: Cambria ;
+          font-size: 30px;
+        }
+        .nav-item{
+          font-size: 18px;
+        }
+        .sidebar-heading{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .navbar .form-control {
+         padding: .60rem 1rem;
+         border-width: 10;
+         border-radius: 0.5;
+         font-size: small;
+         max-width: 140vh;
+        }
+        
+        body {
+        font-size: .875rem;
+        }
+
+        .feather {
+          width: 16px;
+          height: 16px;
+          vertical-align: text-bottom;
+                }
+
+        /*
+        * Sidebar
+        */
+
+        /* Barrita que separa de sidebar con la info*/
+        .sidebar { 
+          box-shadow: inset -1px 0 0 rgba(55, 184, 167, 0.534);
+        }
+
+        .sidebar-sticky {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 48px; /* Height of navbar */
+          height: calc(100vh - 48px);
+          padding-top: .5rem;
+          overflow-x: hidden;
+          overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+
+        .sidebar .nav-link {
+          font-weight: 500;
+          color: #028090;
+        }
+
+        .sidebar .nav-link .feather {
+          margin-right: 4px;
+          color: #00a896;
+        }
+
+        .sidebar .nav-link.active {
+          color: #02c39a;
+        }
+
+        /*
+        * Navbar
+        */
+
+        .navbar-brand {
+          font-family: Cambria ;
+          font-size: 40px;
+        }
+        .col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4{
+          background-color:#02c39a;
+        }
+      </style>  
     </div>
   </div> 
     </div> 
