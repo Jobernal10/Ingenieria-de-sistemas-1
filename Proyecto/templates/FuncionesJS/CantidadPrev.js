@@ -1,15 +1,16 @@
 
 botonAñadir.onclick = function(){
     var tabla=  document.getElementById("tablaPresupuesto");
-    alert("SE ACTIVO ESTA MONDA8: "+ tabla.rows.length)
+    alert("SE ACTIVO ESTA MONDA9: "+ tabla.rows.length)
     alert(parseInt(tabla.rows[2].cells[3].innerText) + parseInt(tabla.rows[1].cells[3].innerText) )
     var suma=0;
-    for (let i = 0; i < tabla.rows.length; i++) {
+    for (let i =  1; i < tabla.rows.length; i++) {
+
+      alert("iteracion "+i+"valor "+ parseInt(tabla.rows[i].cells[3].innerText))
       valor= parseInt(tabla.rows[i].cells[3].innerText)
-    var s=suma+valor;
+    suma=suma+valor;
     }
-    alert("Total es: "+ s)
+    alert("Total es: "+ suma)
     var divsaludar=document.getElementById("Ttabla")
-  divsaludar.innerText= ("Total: "+s)
-alert("Total es: "+ s)
+  divsaludar.innerText= ("Total: "+suma)
 }
