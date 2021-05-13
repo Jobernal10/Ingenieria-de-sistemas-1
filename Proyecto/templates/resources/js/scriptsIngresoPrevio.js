@@ -1,7 +1,7 @@
 const form2 = document.getElementById("flujodecajaprevio"); //PREVIO
 
 form2.addEventListener("submit",function(event) {
-  form2.reset();
+
   event.preventDefault();
   let transactionFormData = new FormData(form2);
   let transactionObj = convertFormDataToTransactionObj(transactionFormData)
@@ -43,7 +43,7 @@ function convertFormDataToTransactionObj(transactionFormData){
 
 function insertRowInTransactionTable(transactionObj){
   
-  let transactionTableRef = document.getElementById("tablaPresupuesto");
+  let transactionTableRef = document.getElementById("tablaPresupuestoPrevio");
   let newTransactionRowRef = transactionTableRef.insertRow(-1);
   newTransactionRowRef.setAttribute("data-transaction-id", transactionObj["transactionId"]);
 

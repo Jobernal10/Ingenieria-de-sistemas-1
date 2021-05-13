@@ -42,7 +42,7 @@ function convertFormDataToTransactionObj(transactionFormData){
 
 function insertRowInTransactionTable(transactionObj){
   
-  let transactionTableRef = document.getElementById("tablaPresupuesto");
+  let transactionTableRef = document.getElementById("tablaPresupuestoReal");
   let newTransactionRowRef = transactionTableRef.insertRow(-1);
   newTransactionRowRef.setAttribute("data-transaction-id", transactionObj["transactionId"]);
 
