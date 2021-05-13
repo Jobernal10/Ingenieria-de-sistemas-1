@@ -1,0 +1,108 @@
+.clase-monto{
+  font-family: Cambria ;
+  background-color: #f0f3bd;
+  padding-bottom: 10px;
+}
+.clase-FC{
+  font-family: Cambria ;
+  background-color: #f0f3bd;
+  padding-bottom: 10px;
+}
+.clase-title{
+  font-family: Cambria ;
+  background-color: #00a896;
+  padding: 1px;
+  border: 1px solid black;
+}
+td,
+th{
+  font-family: Cambria ;
+  padding: 10px;
+  padding-bottom: 10px;
+  border : 1px solid rgb(0, 0, 0); 
+}
+.tableFormat table {
+  background-color: #f0f3bd;
+  font-weight: bold;
+  font-family: Cambria ;
+  margin: 0 auto;
+}
+.h2{
+  font-family: Cambria ;
+}
+.container-fluid{
+  font-family: Cambria ;
+}
+.navbarmain{
+  font-family: Cambria ;
+  font-size: 30px;
+}
+.nav-item{
+  font-size: 18px;
+}
+.sidebar-heading{
+  font-size: 20px;
+  font-weight: bold;
+}
+.navbar .form-control {
+ padding: .60rem 1rem;
+ border-width: 10;
+ border-radius: 0.5;
+ font-size: small;
+ max-width: 140vh;
+}
+
+body {
+font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+        }
+
+/*
+* Sidebar
+*/
+
+/* Barrita que separa de sidebar con la info*/
+.sidebar { 
+  box-shadow: inset -1px 0 0 rgba(55, 184, 167, 0.534);
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 48px; /* Height of navbar */
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #028090;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #00a896;
+}
+
+.sidebar .nav-link.active {
+  color: #02c39a;
+}
+/*
+* Navbar
+*/
+
+.navbar-brand {
+  font-family: Cambria ;
+  font-size: 40px;
+}
+.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4{
+  background-color:#02c39a;
+
+}
