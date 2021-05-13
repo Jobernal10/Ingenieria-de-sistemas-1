@@ -1,16 +1,17 @@
-const form3 = document.getElementById("flujodecajareal");
+const form2 = document.getElementById("flujodecajaprevio"); //PREVIO
 
-form3.addEventListener("submit",function(event) {
+form2.addEventListener("submit",function(event) {
+  form2.reset();
   event.preventDefault();
-  let transactionFormData = new FormData(form3);
+  let transactionFormData = new FormData(form2);
   let transactionObj = convertFormDataToTransactionObj(transactionFormData)
   saveTransactionObj(transactionObj)
   insertRowInTransactionTable(transactionObj)
-  form3.reset();
+  form2.reset();
 })
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  let transactionObjArr = JSON.parse(localStorage.getItem("storagePrev"))
   transactionObjArr.forEach(
     function(arrayElement){
       insertRowInTransactionTable(arrayElement)
@@ -76,7 +77,7 @@ function insertRowInTransactionTable(transactionObj){
 //Le paso como parametro el transactionId de la transaccion que quiero eliminar
 function deleteTransactionObj(transactionId){
   //Obtengo las transacciones de mi "base de datos"
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  let transactionObjArr = JSON.parse(localStorage.getItem("storagePrev"))
   //Busco el indice / la posicion de la transacion que quiero eliminar
   let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionId === transactionId);
   //Elimino el elemento de esa posicion
@@ -84,15 +85,15 @@ function deleteTransactionObj(transactionId){
   //Convierto a objeto JSON
   let transactionArrayJSON = JSON.stringify(transactionObjArr);
   //guardar mi array de transacciones a Local Storage
-  localStorage.setItem("transactionData", transactionArrayJSON);
+  localStorage.setItem("storagePrev", transactionArrayJSON);
 
 }
 
 function saveTransactionObj(transactionObj){
-  let myTransactionArray = JSON.parse(localStorage.getItem("transactionData")) || [];
+  let myTransactionArray = JSON.parse(localStorage.getItem("storagPrev")) || [];
   myTransactionArray.push(transactionObj);
   //Convierto mi arrat de transacciones a Json
   let transactionArrayJSON = JSON.stringify(myTransactionArray);
   //guardar mi array de transacciones a Local Storage
-  localStorage.setItem("transactionData", transactionArrayJSON);
+  localStorage.setItem("storagePrev", transactionArrayJSON);
 }

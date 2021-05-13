@@ -33,9 +33,12 @@
                     Inicio <span class="sr-only">(current)</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="ingresoData.html">Ingresar datos</a>
-                </li>
+                <h6 class="nav-link">
+                  <span>Ingreso de datos</span>
+                  <a class="text-muted" href="#">
+                    <span data-feather="file-text"></span>
+                  </a>
+                </h6>
               </ul>
     
               <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -46,15 +49,15 @@
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="ingresoReal.html">
+                  <a class="nav-link" href="ingresoPrevio.html">
                     <span data-feather="file-text"></span>
-                    Ingreso real
+                    Ingreso previo
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="ingresoReal.html">
                     <span data-feather="file-text"></span>
-                    Ingreso previsto
+                    Ingreso real
                   </a>
                 </li>
               </ul>
@@ -91,7 +94,7 @@
             <div class="clase-title">
             <h4>Ingrese flujo de caja previo</h4>
             </div>
-            <form id="flujodecaja">
+            <form id="flujodecajaprevio">
               
               <br> 
                 <div class="clase-FC">
@@ -124,7 +127,44 @@
                 </div>
                 <br>
             </form>
-            
+
+            <div class="clase-title">
+              <h4>Ingrese flujo de caja real</h4>
+              </div>
+              <form id="flujodecajareal">
+                
+                <br> 
+                  <div class="clase-FC">
+                    Tipo de transacción
+                  <br>
+                  <label for="gasto" name="typeGasto">Gasto</label>
+                  <input id="gasto" name="typeGasto" type="radio" value="Gasto">
+                  </div>
+                      <div class="clase-FC">
+                      <label for="typeFecha">Fecha</label>
+                      <input id="typeFecha" name="typeFecha" type="date">
+                  </div>
+                  <div class="clase-FC">
+                    <label for="typeCategoria">Categoría</label>
+                    <select name="typeCategoria" id="typeCategoria">
+                        <option disabled selected>Seleccione</option>
+                        <option>Hogar</option>
+                        <option>Entretenimiento</option>
+                        <option>Transporte</option>
+                        <option>Seguro</option>
+                        <option>Comida</option>
+                    </select>
+                  </div>
+                  <div class="clase-FC">
+                      <label for="typeCantidad">Cantidad</label>
+                      <input id="typeCantidad" name="typeCantidad" type="number">
+                  </div>
+                      <div class="clase-FC">
+                      <button id="botonAñadir">Añadir</button>                
+                  </div>
+                  <br>
+              </form>
+
 
             <!--Cancelar evento del ordenador /recargar pagina -->
             <script>
