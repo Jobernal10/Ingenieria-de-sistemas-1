@@ -63,68 +63,25 @@
     
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-              <h1 class="h2">Ingresar datos</h1>
+              <h1 class="h2">Tabla de ingreso real</h1>
             </div>
 
-
             <div class="clase-title">
-            <h4>Ingrese la siguiente información</h4>
-          </div>
-            <form id="montoIngresado">
-              <br>
-              <div class="clase-monto">
-              <label for="estimado">Ingreso previsto</label>
-              <input id="typeEstimado" name="typeEstimado" type="number">
-              </div>
-              <div class="clase-monto">
-              <label for="real">Ingreso real</label>
-              <input id="typeReal" name="typeReal" type="number">
-              <div id=hola>Total: </div>
-              </div>
-              <div class="clase-monto">
-              <button id="botonAñadir1">Añadir</button>
-              
-              </div>
-            </form>
-            <br>
-
-            <div class="clase-title">
-            <h4>Ingrese flujo de caja previo</h4>
-            </div>
             <form id="flujodecaja">
-              
-              <br> 
-                <div class="clase-FC">
-                  Tipo de transacción
-                <br>
-                <label for="gasto" name="typeGasto">Gasto</label>
-                <input id="gasto" name="typeGasto" type="radio" value="Gasto">
-                </div>
-                    <div class="clase-FC">
-                    <label for="typeFecha">Fecha</label>
-                    <input id="typeFecha" name="typeFecha" type="date">
-                </div>
-                <div class="clase-FC">
-                  <label for="typeCategoria">Categoría</label>
-                  <select name="typeCategoria" id="typeCategoria">
-                      <option disabled selected>Seleccione</option>
-                      <option>Hogar</option>
-                      <option>Entretenimiento</option>
-                      <option>Transporte</option>
-                      <option>Seguro</option>
-                      <option>Comida</option>
-                  </select>
-                </div>
-                <div class="clase-FC">
-                    <label for="typeCantidad">Cantidad</label>
-                    <input id="typeCantidad" name="typeCantidad" type="number">
-                </div>
-                    <div class="clase-FC">
-                    <button id="botonAñadir">Añadir</button>                
-                </div>
                 <br>
             </form>
-            
+            <div class="tableFormat">
+              <table id="tablaPresupuesto">
+                <tr>
+                  <th>Tipo de transacción</th> 
+                  <th>Fecha</th>
+                  <th>Categoría</th>
+                  <th>Cantidad</th>
+                  <th>Eliminar</th>
+                </tr>
+              </table>
+              <div id=Ttabla>Total: </div>
+            </div>
 
             <!--Cancelar evento del ordenador /recargar pagina -->
             <script>
@@ -133,7 +90,7 @@
             <style>
             </style>
         </div> 
-        <script src="resources/js/scriptsIngresoData.js"></script>
+        <script src="resources/js/scriptsIngresoReal.js"></script>
         <script src="./FuncionesJS/Diferencia.js"></script>
         <script src="./FuncionesJS/CantidadPrev.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -1,0 +1,104 @@
+const form1 = document.getElementById("montoIngresado");
+form1.addEventListener("submit",function(event) {
+  event.preventDefault();
+  let transactionFormData1 = new FormData(form1);
+})
+
+const form2 = document.getElementById("flujodecaja");
+
+form2.addEventListener("submit",function(event) {
+  event.preventDefault();
+  let transactionFormData = new FormData(form2);
+  let transactionObj = convertFormDataToTransactionObj(transactionFormData)
+  saveTransactionObj(transactionObj)
+  insertRowInTransactionTable(transactionObj)
+  form2.reset();
+})
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  transactionObjArr.forEach(
+    function(arrayElement){
+      insertRowInTransactionTable(arrayElement)
+  });
+})
+
+function getNewTransactionId(){
+  let lastTransactionId = localStorage.getItem("lastTransactionId") || "0"
+  let newTransactionId = JSON.parse(lastTransactionId) + 1;
+  localStorage.setItem("lastTransactionId", JSON.stringify(newTransactionId))
+  return newTransactionId; 
+}
+
+function convertFormDataToTransactionObj(transactionFormData){
+  let typeGasto = transactionFormData.get("typeGasto")
+  let typeFecha = transactionFormData.get("typeFecha")
+  let typeCategoria = transactionFormData.get("typeCategoria")
+  let typeCantidad = transactionFormData.get("typeCantidad")
+  let transactionId = getNewTransactionId();
+
+  return {"typeGasto": typeGasto,
+          "typeFecha": typeFecha,
+          "typeCategoria":typeCategoria,
+          "typeCantidad":typeCantidad,
+          "transactionId":transactionId
+        }
+
+}
+
+function insertRowInTransactionTable(transactionObj){
+  
+  let transactionTableRef = document.getElementById("tablaPresupuesto");
+  let newTransactionRowRef = transactionTableRef.insertRow(-1);
+  newTransactionRowRef.setAttribute("data-transaction-id", transactionObj["transactionId"]);
+
+  let newTypeCellRef = newTransactionRowRef.insertCell(0);
+  newTypeCellRef.textContent = transactionObj["typeGasto"];
+
+  newTypeCellRef = newTransactionRowRef.insertCell(1);
+  newTypeCellRef.textContent = transactionObj["typeFecha"];
+
+  
+  newTypeCellRef = newTransactionRowRef.insertCell(2);
+  newTypeCellRef.textContent = transactionObj["typeCategoria"]; 
+
+  
+  newTypeCellRef = newTransactionRowRef.insertCell(3);
+  newTypeCellRef.textContent = transactionObj["typeCantidad"]
+
+  let newDeleteCell = newTransactionRowRef.insertCell(4);
+  let deleteButton = document.createElement("button");
+  deleteButton.textContent = "Eliminar";
+  newDeleteCell.appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", (event) => {
+    let transactionRow = event.target.parentNode.parentNode;
+    let transactionId = transactionRow.getAttribute("data-transaction-id");
+    transactionRow.remove();
+    deleteTransactionObj(transactionId);
+  })
+}
+
+//Le paso como parametro el transactionId de la transaccion que quiero eliminar
+function deleteTransactionObj(transactionId){
+  //Obtengo las transacciones de mi "base de datos"
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  //Busco el indice / la posicion de la transacion que quiero eliminar
+  let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionId === transactionId);
+  //Elimino el elemento de esa posicion
+  transactionObjArr.splice(transactionIndexInArray, 1)
+  //Convierto a objeto JSON
+  let transactionArrayJSON = JSON.stringify(transactionObjArr);
+  //guardar mi array de transacciones a Local Storage
+  localStorage.setItem("transactionData", transactionArrayJSON);
+
+}
+
+function saveTransactionObj(transactionObj){
+  let myTransactionArray = JSON.parse(localStorage.getItem("transactionData")) || [];
+  myTransactionArray.push(transactionObj);
+  //Convierto mi arrat de transacciones a Json
+  let transactionArrayJSON = JSON.stringify(myTransactionArray);
+  //guardar mi array de transacciones a Local Storage
+  localStorage.setItem("transactionData", transactionArrayJSON);
+}
