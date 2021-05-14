@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 })
 
-function getNewTransactionId(){
-  let lastTransactionId = localStorage.getItem("lastTransactionId") || "0"
-  let newTransactionId = JSON.parse(lastTransactionId) + 1;
-  localStorage.setItem("lastTransactionId", JSON.stringify(newTransactionId))
-  return newTransactionId; 
+function getNewTransactionIdPrev(){ //REDITAR NOMAS ESTO
+  let lastTransactionIdPrev = localStorage.getItem("lastTransactionIdPrev") || "0"
+  let newTransactionIdPrev = JSON.parse(lastTransactionIdPrev) + 1;
+  localStorage.setItem("lastTransactionIdPrev", JSON.stringify(newTransactionIdPrev))
+  return newTransactionIdPrev; 
 }
 
 function convertFormDataToTransactionObj(transactionFormData){
@@ -30,7 +30,7 @@ function convertFormDataToTransactionObj(transactionFormData){
   let typeFecha = transactionFormData.get("typeFecha")
   let typeCategoria = transactionFormData.get("typeCategoria")
   let typeCantidad = transactionFormData.get("typeCantidad")
-  let transactionId = getNewTransactionId();
+  let transactionId = getNewTransactionIdPrev();
 
   return {"typeGasto": typeGasto,
           "typeFecha": typeFecha,

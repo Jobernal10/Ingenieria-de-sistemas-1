@@ -10,18 +10,18 @@ form3.addEventListener("submit",function(event) {
 })
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  let transactionObjArr = JSON.parse(localStorage.getItem("storageReal"))
   transactionObjArr.forEach(
     function(arrayElement){
       insertRowInTransactionTable(arrayElement)
   });
 })
 
-function getNewTransactionId(){
-  let lastTransactionId = localStorage.getItem("lastTransactionId") || "0"
-  let newTransactionId = JSON.parse(lastTransactionId) + 1;
-  localStorage.setItem("lastTransactionId", JSON.stringify(newTransactionId))
-  return newTransactionId; 
+function getNewTransactionIdReal(){ //REDITAR NOMAS ESTO
+  let lastTransactionIdReal = localStorage.getItem("lastTransactionIdReal") || "0"
+  let newTransactionIdReal = JSON.parse(lastTransactionIdReal) + 1;
+  localStorage.setItem("lastTransactionIdReal", JSON.stringify(newTransactionIdReal))
+  return newTransactionIdReal; 
 }
 
 function convertFormDataToTransactionObj(transactionFormData){
@@ -29,7 +29,7 @@ function convertFormDataToTransactionObj(transactionFormData){
   let typeFecha = transactionFormData.get("typeFecha")
   let typeCategoria = transactionFormData.get("typeCategoria")
   let typeCantidad = transactionFormData.get("typeCantidad")
-  let transactionId = getNewTransactionId();
+  let transactionId = getNewTransactionIdReal();
 
   return {"typeGasto": typeGasto,
           "typeFecha": typeFecha,
@@ -76,7 +76,7 @@ function insertRowInTransactionTable(transactionObj){
 //Le paso como parametro el transactionId de la transaccion que quiero eliminar
 function deleteTransactionObj(transactionId){
   //Obtengo las transacciones de mi "base de datos"
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+  let transactionObjArr = JSON.parse(localStorage.getItem("storageReal"))
   //Busco el indice / la posicion de la transacion que quiero eliminar
   let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionId === transactionId);
   //Elimino el elemento de esa posicion
@@ -84,15 +84,15 @@ function deleteTransactionObj(transactionId){
   //Convierto a objeto JSON
   let transactionArrayJSON = JSON.stringify(transactionObjArr);
   //guardar mi array de transacciones a Local Storage
-  localStorage.setItem("transactionData", transactionArrayJSON);
+  localStorage.setItem("storageReal", transactionArrayJSON);
 
 }
 
 function saveTransactionObj(transactionObj){
-  let myTransactionArray = JSON.parse(localStorage.getItem("transactionData")) || [];
+  let myTransactionArray = JSON.parse(localStorage.getItem("storageReal")) || [];
   myTransactionArray.push(transactionObj);
   //Convierto mi arrat de transacciones a Json
   let transactionArrayJSON = JSON.stringify(myTransactionArray);
   //guardar mi array de transacciones a Local Storage
-  localStorage.setItem("transactionData", transactionArrayJSON);
+  localStorage.setItem("storageReal", transactionArrayJSON);
 }
