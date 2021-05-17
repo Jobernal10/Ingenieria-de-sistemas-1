@@ -11,6 +11,6 @@ botonAñadir.onclick = function(){
     suma=suma+valor;
     }
     //alert("Total es: "+ suma)
-    var divsaludar=document.getElementById("Ttabla")
+    var divsaludar=document.getElementById("SumaPrev")
   divsaludar.innerText= ("Total: "+suma)
 }
