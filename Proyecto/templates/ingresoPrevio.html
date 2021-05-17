@@ -68,6 +68,15 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <h1 class="h2">Tabla de ingreso previo</h1>
         </div>
+        <div>
+          
+          <h4 id=ingresoNUM>Ingreso previo:</h4>
+          <script>
+            var te=typeEstimado.value;
+            var divsaludar=document.getElementById("ingresoNUM")
+            divsaludar.innerText= ("Ingreso previo: "+te)
+          </script>
+        </div>
 
         <div class="clase-title">
           <form id="flujodecajaprevio">
@@ -86,8 +95,7 @@
             <div>
               <br>
               <button id="BotonSumaPrev">Total</button> 
-              <h4 id=SumaPrev>Total:
-                <script>SumaPrev()</script> </h4>
+              <h4 id=SumaPrev>Total:</h4>
             </div>
           </div>
 
