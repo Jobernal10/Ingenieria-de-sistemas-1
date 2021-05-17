@@ -10,7 +10,7 @@ BotonSumaPrev.onclick = function() {
       valor= parseInt(tabla.rows[i].cells[3].innerText)
     suma=suma+valor;
     }
-    alert("Total SUMPREV es: "+ suma)
+    //alert("Total SUMPREV es: "+ suma)
     var divsaludar=document.getElementById("SumaPrev")
   divsaludar.innerText= ("Total: "+suma)
 }
