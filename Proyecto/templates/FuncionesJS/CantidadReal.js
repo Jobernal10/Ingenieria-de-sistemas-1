@@ -1,5 +1,5 @@
-botonAñadir.onclick = function(){
-    var tabla=  document.getElementById("tablaPresupuesto");
+function(){
+    var tabla=  document.getElementById("tablaPresupuestoReal");
     //alert("SE ACTIVO ESTA MONDA9: "+ tabla.rows.length)
     //alert(parseInt(tabla.rows[2].cells[3].innerText) + parseInt(tabla.rows[1].cells[3].innerText) )
     var suma=0;
