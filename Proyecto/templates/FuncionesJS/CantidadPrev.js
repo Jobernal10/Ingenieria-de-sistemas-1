@@ -1,4 +1,5 @@
 
+BotonSumaPrev.onclick = SumaPrev()
 function SumaPrev(){
     var tabla=  document.getElementById("tablaPresupuestoPrevio");
     //alert("SE ACTIVO ESTA MONDA9: "+ tabla.rows.length)
@@ -10,7 +11,7 @@ function SumaPrev(){
       valor= parseInt(tabla.rows[i].cells[3].innerText)
     suma=suma+valor;
     }
-    //alert("Total es: "+ suma)
+    alert("Total SUMPREV es: "+ suma)
     var divsaludar=document.getElementById("SumaPrev")
   divsaludar.innerText= ("Total: "+suma)
 }

@@ -1,3 +1,4 @@
+BotonSumaReal.onclick = SumaReal()
 function SumaReal(){
     var tabla=  document.getElementById("tablaPresupuestoReal");
     //alert("SE ACTIVO ESTA MONDA9: "+ tabla.rows.length)
@@ -9,7 +10,7 @@ function SumaReal(){
       valor= parseInt(tabla.rows[i].cells[3].innerText)
     suma=suma+valor;
     }
-    //alert("Total es: "+ suma)
+    alert("Total SUMAREAL es: "+ suma)
     var divsaludar=document.getElementById("SumaReal")
   divsaludar.innerText= ("Total: "+suma)
 }
