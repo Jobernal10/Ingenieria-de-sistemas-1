@@ -9,7 +9,7 @@ BotonSumaReal.onclick = function() {
       valor= parseInt(tabla.rows[i].cells[3].innerText)
     suma=suma+valor;
     }
-    alert("Total SUMAREAL es: "+ suma)
+    //alert("Total SUMAREAL es: "+ suma)
     var divsaludar=document.getElementById("SumaReal")
   divsaludar.innerText= ("Total: "+suma)
 }
