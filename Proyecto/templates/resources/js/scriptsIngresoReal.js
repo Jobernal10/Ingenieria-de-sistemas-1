@@ -1,64 +1,65 @@
 const form3 = document.getElementById("flujodecajareal");
 
-form3.addEventListener("submit",function(event) {
+form3.addEventListener("submit", function (event) {
   event.preventDefault();
-  let transactionFormData = new FormData(form3);
-  let transactionObj = convertFormDataToTransactionObj(transactionFormData)
-  saveTransactionObj(transactionObj)
-  insertRowInTransactionTable(transactionObj)
+  let transactionFormDataReal = new FormData(form3);
+  let transactionObjReal = convertFormDataToTransactionObjReal(transactionFormDataReal)
+  saveTransactionObjReal(transactionObjReal)
+  insertRowInTransactionTableReal(transactionObjReal)
   form3.reset();
 })
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  let transactionObjArr = JSON.parse(localStorage.getItem("storageReal"))
-  transactionObjArr.forEach(
-    function(arrayElement){
-      insertRowInTransactionTable(arrayElement)
-  });
+document.addEventListener("DOMContentLoaded", function (event) {
+  let transactionObjArrReal = JSON.parse(localStorage.getItem("storageReal"))
+  transactionObjArrReal.forEach(
+    function (arrayElement) {
+      insertRowInTransactionTableReal(arrayElement)
+    });
 })
 
-function getNewTransactionIdReal(){ //REDITAR NOMAS ESTO
+function getNewTransactionIdReal() { //REDITAR NOMAS ESTO
   let lastTransactionIdReal = localStorage.getItem("lastTransactionIdReal") || "0"
   let newTransactionIdReal = JSON.parse(lastTransactionIdReal) + 1;
   localStorage.setItem("lastTransactionIdReal", JSON.stringify(newTransactionIdReal))
-  return newTransactionIdReal; 
+  return newTransactionIdReal;
 }
 
-function convertFormDataToTransactionObj(transactionFormData){
-  let typeGasto = transactionFormData.get("typeGasto")
-  let typeFecha = transactionFormData.get("typeFecha")
-  let typeCategoria = transactionFormData.get("typeCategoria")
-  let typeCantidad = transactionFormData.get("typeCantidad")
-  let transactionId = getNewTransactionIdReal();
+function convertFormDataToTransactionObjReal(transactionFormDataReal) {
+  let typeGasto = transactionFormDataReal.get("typeGasto")
+  let typeFecha = transactionFormDataReal.get("typeFecha")
+  let typeCategoria = transactionFormDataReal.get("typeCategoria")
+  let typeCantidad = transactionFormDataReal.get("typeCantidad")
+  let transactionIdReal = getNewTransactionIdReal();
 
-  return {"typeGasto": typeGasto,
-          "typeFecha": typeFecha,
-          "typeCategoria":typeCategoria,
-          "typeCantidad":typeCantidad,
-          "transactionId":transactionId
-        }
+  return {
+    "typeGasto": typeGasto,
+    "typeFecha": typeFecha,
+    "typeCategoria": typeCategoria,
+    "typeCantidad": typeCantidad,
+    "transactionIdReal": transactionIdReal
+  }
 
 }
 
-function insertRowInTransactionTable(transactionObj){
-  
+function insertRowInTransactionTableReal(transactionObjReal) {
+
   let transactionTableRef = document.getElementById("tablaPresupuestoReal");
   let newTransactionRowRef = transactionTableRef.insertRow(-1);
-  newTransactionRowRef.setAttribute("data-transaction-id", transactionObj["transactionId"]);
+  newTransactionRowRef.setAttribute("data-transaction-id", transactionObjReal["transactionIdReal"]);
 
   let newTypeCellRef = newTransactionRowRef.insertCell(0);
-  newTypeCellRef.textContent = transactionObj["typeGasto"];
+  newTypeCellRef.textContent = transactionObjReal["typeGasto"];
 
   newTypeCellRef = newTransactionRowRef.insertCell(1);
-  newTypeCellRef.textContent = transactionObj["typeFecha"];
+  newTypeCellRef.textContent = transactionObjReal["typeFecha"];
 
-  
+
   newTypeCellRef = newTransactionRowRef.insertCell(2);
-  newTypeCellRef.textContent = transactionObj["typeCategoria"]; 
+  newTypeCellRef.textContent = transactionObjReal["typeCategoria"];
 
-  
+
   newTypeCellRef = newTransactionRowRef.insertCell(3);
-  newTypeCellRef.textContent = transactionObj["typeCantidad"]
+  newTypeCellRef.textContent = transactionObjReal["typeCantidad"]
 
   let newDeleteCell = newTransactionRowRef.insertCell(4);
   let deleteButton = document.createElement("button");
@@ -67,30 +68,30 @@ function insertRowInTransactionTable(transactionObj){
 
   deleteButton.addEventListener("click", (event) => {
     let transactionRow = event.target.parentNode.parentNode;
-    let transactionId = transactionRow.getAttribute("data-transaction-id");
+    let transactionIdReal = transactionRow.getAttribute("data-transaction-id");
     transactionRow.remove();
-    deleteTransactionObj(transactionId);
+    deleteTransactionObjReal(transactionIdReal);
   })
 }
 
-//Le paso como parametro el transactionId de la transaccion que quiero eliminar
-function deleteTransactionObj(transactionId){
+//Le paso como parametro el transactionIdReal de la transaccion que quiero eliminar
+function deleteTransactionObjReal(transactionIdReal) {
   //Obtengo las transacciones de mi "base de datos"
-  let transactionObjArr = JSON.parse(localStorage.getItem("storageReal"))
+  let transactionObjArrReal = JSON.parse(localStorage.getItem("storageReal"))
   //Busco el indice / la posicion de la transacion que quiero eliminar
-  let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionId === transactionId);
+  let transactionIndexInArray = transactionObjArrReal.findIndex(element => element.transactionIdReal === transactionIdReal);
   //Elimino el elemento de esa posicion
-  transactionObjArr.splice(transactionIndexInArray, 1)
+  transactionObjArrReal.splice(transactionIndexInArray, 1)
   //Convierto a objeto JSON
-  let transactionArrayJSON = JSON.stringify(transactionObjArr);
+  let transactionArrayJSON = JSON.stringify(transactionObjArrReal);
   //guardar mi array de transacciones a Local Storage
   localStorage.setItem("storageReal", transactionArrayJSON);
 
 }
 
-function saveTransactionObj(transactionObj){
+function saveTransactionObjReal(transactionObjReal) {
   let myTransactionArray = JSON.parse(localStorage.getItem("storageReal")) || [];
-  myTransactionArray.push(transactionObj);
+  myTransactionArray.push(transactionObjReal);
   //Convierto mi arrat de transacciones a Json
   let transactionArrayJSON = JSON.stringify(myTransactionArray);
   //guardar mi array de transacciones a Local Storage
