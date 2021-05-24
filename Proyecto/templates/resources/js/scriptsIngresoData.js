@@ -1,13 +1,14 @@
 const form1 = document.getElementById("montoIngresado");
 form1.addEventListener("submit", function (event) {
   event.preventDefault();
-  let transactionFormData1 = new FormData(form1);
+  //let transactionFormData1 = new FormData(form1);
+  form1.reset();
 })
 
 const form2 = document.getElementById("flujodecajaprevio"); //PREVIO
 
-form2.addEventListener("submit", function (event) {
-  event.preventDefault();
+form2.addEventListener("submit", function (event1) {
+  event1.preventDefault();
   let transactionFormData = new FormData(form2);
   let transactionObj = convertFormDataToTransactionObj(transactionFormData)
   saveTransactionObj(transactionObj)
@@ -15,7 +16,7 @@ form2.addEventListener("submit", function (event) {
   form2.reset();
 })
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function (event1) {
   let transactionObjArr = JSON.parse(localStorage.getItem("storagePrev"))
   transactionObjArr.forEach(
     function (arrayElement) {
@@ -72,8 +73,8 @@ function insertRowInTransactionTable(transactionObj) {
   deleteButton.textContent = "Eliminar";
   newDeleteCell.appendChild(deleteButton);
 
-  deleteButton.addEventListener("click", (event) => {
-    let transactionRow = event.target.parentNode.parentNode;
+  deleteButton.addEventListener("click", (event1) => {
+    let transactionRow = event1.target.parentNode.parentNode;
     let transactionId = transactionRow.getAttribute("data-transaction-id");
     transactionRow.remove();
     deleteTransactionObj(transactionId);
