@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="./resources/css/stylesIngresoData.css">
+  <title>Ingresar datos</title>
+</head>
+
+<body>
+  <div class="navbarmain">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html">UrBudget</a>
+      <!-- <input class="form-control form-control-blue w-40" type="text" placeholder="Buscar" aria-label="Buscar"> -->
+      <ul class="navbar-nav px-3">
+        <li class="text-nowrap">
+          <a class="nav-link">Cerrar sesión</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">
+                <span data-feather="home"></span>
+                Inicio <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <h6 class="nav-link">
+              <span>Ingreso de datos</span>
+              <a class="text-muted" href="#">
+                <span data-feather="file-text"></span>
+              </a>
+            </h6>
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Reportes de consumo</span>
+            <a class="d-flex align-items-center text-muted" href="#">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="ingresoPrevio.html">
+                <span data-feather="file-text"></span>
+                Ingreso previo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ingresoReal.html">
+                <span data-feather="file-text"></span>
+                Ingreso real
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 class="h2">Ingresar datos</h1>
+        </div>
+
+
+        <div class="clase-title">
+          <h4>Ingrese la siguiente información</h4>
+        </div>
+        <form id="montoIngresado">
+          <br>
+          <div class="clase-monto">
+            <label for="estimado">Ingreso previsto</label>
+            <input id="typeEstimado" name="typeEstimado" type="number">
+          </div>
+          <div class="clase-monto">
+            <label for="real">Ingreso real</label>
+            <input id="typeReal" name="typeReal" type="number">
+            <div id=hola>Total: </div>
+          </div>
+          <div class="clase-monto">
+            <button id="botonAñadir1">Añadir</button>
+          </div>
+        </form>
+        <br>
+
+        <div class="clase-title">
+          <h4>Ingrese flujo de caja previo</h4>
+        </div>
+        <form id="flujodecajaprevio">
+
+          <br>
+          <div class="clase-FC">
+            Tipo de transacción
+            <br>
+            <label for="gasto" name="typeGasto">Gasto</label>
+            <input id="gasto" name="typeGasto" type="radio" value="Gasto">
+          </div>
+          <div class="clase-FC">
+            <label for="typeFecha">Fecha</label>
+            <input id="typeFecha" name="typeFecha" type="date">
+          </div>
+          <div class="clase-FC">
+            <label for="typeCategoria">Categoría</label>
+            <select name="typeCategoria" id="typeCategoria">
+              <option disabled selected>Seleccione</option>
+              <option>Hogar</option>
+              <option>Entretenimiento</option>
+              <option>Transporte</option>
+              <option>Seguro</option>
+              <option>Comida</option>
+            </select>
+          </div>
+          <div class="clase-FC">
+            <label for="typeCantidad">Cantidad</label>
+            <input id="typeCantidad" name="typeCantidad" type="number">
+          </div>
+          <div class="clase-FC">
+            <button id="botonAñadir">Añadir</button>
+          </div>
+          <br>
+        </form>
+
+        <div class="clase-title">
+          <h4>Ingrese flujo de caja real</h4>
+        </div>
+        <form id="flujodecajareal">
+
+          <br>
+          <div class="clase-FC">
+            Tipo de transacción
+            <br>
+            <label for="gasto" name="typeGasto">Gasto</label>
+            <input id="gasto" name="typeGasto" type="radio" value="Gasto">
+          </div>
+          <div class="clase-FC">
+            <label for="typeFecha">Fecha</label>
+            <input id="typeFecha" name="typeFecha" type="date">
+          </div>
+          <div class="clase-FC">
+            <label for="typeCategoria">Categoría</label>
+            <select name="typeCategoria" id="typeCategoria">
+              <option disabled selected>Seleccione</option>
+              <option>Hogar</option>
+              <option>Entretenimiento</option>
+              <option>Transporte</option>
+              <option>Seguro</option>
+              <option>Comida</option>
+            </select>
+          </div>
+          <div class="clase-FC">
+            <label for="typeCantidad">Cantidad</label>
+            <input id="typeCantidad" name="typeCantidad" type="number">
+          </div>
+          <div class="clase-FC">
+            <button id="botonAñadir">Añadir</button>
+          </div>
+          <br>
+        </form>
+
+
+        <!--Cancelar evento del ordenador /recargar pagina -->
+        <script>
+        </script>
+
+        <style>
+        </style>
+    </div>
+    <script src="resources/js/scriptsIngresoData.js"></script>
+    <script src="./FuncionesJS/Diferencia.js"></script>
+    <script src="./FuncionesJS/CantidadPrev.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
