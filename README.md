@@ -9,7 +9,7 @@ Miguel Ángel García Perilla
 ## Diagramas UML
 
 ### Diagrama de casos de uso
-![UML-CASO-USO](https://github.com/Jobernal10/Ingenieria-de-sistemas-1/blob/main/Diagrama%20UML%20Grafico.png)
+![UML-CASO-USO](https://github.com/Jobernal10/Ingenieria-de-sistemas-1/blob/main/Diagramas/Casos%20de%20%20uso%20especificos.pdf)
 ### Diagrama de clases
 ![UML-CLASES](https://github.com/Jobernal10/Ingenieria-de-sistemas-1/blob/main/DiagramaClasesUrBudget.png)
 ### Diagrama de objetos
